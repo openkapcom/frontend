@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import {
-  Monitor,
   Loader2,
   AlertCircle,
   UserPlus,
@@ -84,8 +83,8 @@ export default function AcceptInvitationPage() {
       <div className="flex min-h-screen items-center justify-center bg-muted/30 px-4">
         <div className="w-full max-w-sm space-y-4">
           <div className="flex items-center justify-center gap-2">
-            <Monitor className="size-5" />
-            <span className="text-lg font-bold tracking-tight">ScreenSense</span>
+            <img src="/logo.svg" alt="OpenKap" className="size-6 rounded" />
+            <span className="text-lg font-bold tracking-tight">OpenKap</span>
           </div>
           <Alert variant="destructive">
             <AlertCircle className="size-4" />
@@ -123,8 +122,8 @@ export default function AcceptInvitationPage() {
       <Card className="w-full max-w-sm">
         <CardHeader className="text-center">
           <div className="mx-auto mb-2 flex items-center justify-center gap-2">
-            <Monitor className="size-5" />
-            <span className="text-lg font-bold tracking-tight">ScreenSense</span>
+            <img src="/logo.svg" alt="OpenKap" className="size-6 rounded" />
+            <span className="text-lg font-bold tracking-tight">OpenKap</span>
           </div>
           <UserPlus className="mx-auto size-8 text-muted-foreground" />
           <CardTitle>Workspace Invitation</CardTitle>

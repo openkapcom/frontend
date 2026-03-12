@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Monitor, Loader2, AlertCircle, Check } from 'lucide-react';
+import { Loader2, AlertCircle, Check } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 import { integrationService } from '@/services/integrationService';
@@ -42,8 +42,8 @@ export default function TrelloCallbackPage() {
     <div className="flex min-h-screen items-center justify-center bg-muted/30 px-4">
       <div className="w-full max-w-sm space-y-4 text-center">
         <div className="flex items-center justify-center gap-2">
-          <Monitor className="size-5" />
-          <span className="text-lg font-bold tracking-tight">ScreenSense</span>
+          <img src="/logo.svg" alt="OpenKap" className="size-6 rounded" />
+          <span className="text-lg font-bold tracking-tight">OpenKap</span>
         </div>
 
         {status === 'loading' && (

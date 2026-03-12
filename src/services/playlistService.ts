@@ -1,25 +1,25 @@
-import apiClient from './apiClient';
+import apiClient, { unwrap, unwrapArray } from './apiClient';
 import type { Playlist } from '@/types';
 
 export const playlistService = {
   async getPlaylists(): Promise<Playlist[]> {
     const { data } = await apiClient.get('/api/playlists');
-    return data.data || data;
+    return unwrapArray<Playlist>(data);
   },
 
   async createPlaylist(name: string, description?: string): Promise<Playlist> {
     const { data } = await apiClient.post('/api/playlists', { name, description });
-    return data.data || data;
+    return unwrap<Playlist>(data);
   },
 
   async getPlaylist(id: number): Promise<Playlist> {
     const { data } = await apiClient.get(`/api/playlists/${id}`);
-    return data.data || data;
+    return unwrap<Playlist>(data);
   },
 
   async updatePlaylist(id: number, payload: { name?: string; description?: string }): Promise<Playlist> {
     const { data } = await apiClient.put(`/api/playlists/${id}`, payload);
-    return data.data || data;
+    return unwrap<Playlist>(data);
   },
 
   async deletePlaylist(id: number): Promise<void> {
@@ -28,7 +28,7 @@ export const playlistService = {
 
   async toggleSharing(id: number): Promise<Playlist> {
     const { data } = await apiClient.post(`/api/playlists/${id}/toggle-sharing`);
-    return data.data || data;
+    return unwrap<Playlist>(data);
   },
 
   async setPassword(id: number, password: string | null): Promise<void> {
@@ -60,6 +60,6 @@ export const playlistService = {
     const { data } = await apiClient.get(`/api/share/playlist/${token}`, {
       params: password ? { password } : undefined,
     });
-    return data.data || data;
+    return unwrap<Playlist>(data);
   },
 };

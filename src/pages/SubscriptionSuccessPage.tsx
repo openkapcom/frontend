@@ -92,7 +92,7 @@ export default function SubscriptionSuccessPage() {
             <Button className="mt-8">Go to Library</Button>
           </Link>
           <p className="mt-6 text-xs text-muted-foreground">
-            ScreenSense
+            OpenKap
           </p>
         </CardContent>
       </Card>

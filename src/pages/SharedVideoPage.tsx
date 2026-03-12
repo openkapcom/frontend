@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import Hls from 'hls.js';
 import { formatDistanceToNow } from 'date-fns';
 import {
-  Monitor,
   Eye,
   Calendar,
   Copy,
@@ -123,8 +122,8 @@ export default function SharedVideoPage() {
       <div className="min-h-screen bg-background">
         <header className="border-b">
           <div className="mx-auto flex h-14 max-w-4xl items-center gap-2 px-4">
-            <Monitor className="size-5" />
-            <span className="font-bold tracking-tight">ScreenSense</span>
+            <img src="/logo.svg" alt="OpenKap" className="size-6 rounded" />
+            <span className="font-bold tracking-tight">OpenKap</span>
           </div>
         </header>
         <div className="mx-auto max-w-4xl space-y-4 p-4">
@@ -141,8 +140,8 @@ export default function SharedVideoPage() {
       <div className="min-h-screen bg-background">
         <header className="border-b">
           <div className="mx-auto flex h-14 max-w-4xl items-center gap-2 px-4">
-            <Monitor className="size-5" />
-            <span className="font-bold tracking-tight">ScreenSense</span>
+            <img src="/logo.svg" alt="OpenKap" className="size-6 rounded" />
+            <span className="font-bold tracking-tight">OpenKap</span>
           </div>
         </header>
         <div className="mx-auto max-w-md p-8">
@@ -163,8 +162,8 @@ export default function SharedVideoPage() {
       <header className="border-b">
         <div className="mx-auto flex h-14 max-w-4xl items-center justify-between px-4">
           <div className="flex items-center gap-2">
-            <Monitor className="size-5" />
-            <span className="font-bold tracking-tight">ScreenSense</span>
+            <img src="/logo.svg" alt="OpenKap" className="size-6 rounded" />
+            <span className="font-bold tracking-tight">OpenKap</span>
           </div>
           <Button variant="outline" size="sm" className="gap-1.5" onClick={handleCopyLink}>
             {copied ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}

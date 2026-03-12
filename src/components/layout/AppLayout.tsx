@@ -204,7 +204,7 @@ export default function AppLayout() {
     for (const [route, title] of Object.entries(ROUTE_TITLES)) {
       if (path.startsWith(route)) return title;
     }
-    return 'ScreenSense';
+    return 'OpenKap';
   }, [location.pathname]);
 
   // Filtered nav items based on admin status
@@ -278,10 +278,8 @@ export default function AppLayout() {
     <div className="flex h-full flex-col">
       <div className="flex h-14 items-center px-4">
         <Link to="/videos" className="flex items-center gap-2.5">
-          <div className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-            <VideoIcon className="size-4" />
-          </div>
-          <span className="text-base font-semibold tracking-tight">ScreenSense</span>
+          <img src="/logo.svg" alt="OpenKap" className="size-8 rounded-lg" />
+          <span className="text-base font-semibold tracking-tight">OpenKap</span>
         </Link>
       </div>
 
@@ -408,11 +406,9 @@ export default function AppLayout() {
             {/* Header: Logo + collapse toggle */}
             <div className={`flex h-14 items-center ${collapsed ? 'justify-center px-2' : 'justify-between px-4'}`}>
               <Link to="/videos" className="flex items-center gap-2.5">
-                <div className="flex size-8 items-center justify-center rounded-lg bg-primary text-primary-foreground">
-                  <VideoIcon className="size-4" />
-                </div>
+                <img src="/logo.svg" alt="OpenKap" className="size-8 rounded-lg" />
                 {!collapsed && (
-                  <span className="text-base font-semibold tracking-tight">ScreenSense</span>
+                  <span className="text-base font-semibold tracking-tight">OpenKap</span>
                 )}
               </Link>
               {!collapsed && (

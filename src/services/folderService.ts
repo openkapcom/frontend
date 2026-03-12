@@ -1,20 +1,20 @@
-import apiClient from './apiClient';
+import apiClient, { unwrap, unwrapArray } from './apiClient';
 import type { Folder, Video } from '@/types';
 
 export const folderService = {
   async getFolders(): Promise<Folder[]> {
     const { data } = await apiClient.get('/api/folders');
-    return data.data || data;
+    return unwrapArray<Folder>(data);
   },
 
   async createFolder(name: string, color: string = '#6366f1'): Promise<Folder> {
     const { data } = await apiClient.post('/api/folders', { name, color });
-    return data.data || data;
+    return unwrap<Folder>(data);
   },
 
   async updateFolder(id: number, payload: { name?: string; color?: string }): Promise<Folder> {
     const { data } = await apiClient.patch(`/api/folders/${id}`, payload);
-    return data.data || data;
+    return unwrap<Folder>(data);
   },
 
   async deleteFolder(id: number): Promise<void> {
@@ -23,7 +23,7 @@ export const folderService = {
 
   async getFolderVideos(id: number): Promise<Video[]> {
     const { data } = await apiClient.get(`/api/folders/${id}/videos`);
-    return data.data || data;
+    return unwrapArray<Video>(data);
   },
 
   async addVideosToFolder(id: number, videoIds: number[]): Promise<void> {

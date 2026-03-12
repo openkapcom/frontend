@@ -33,4 +33,15 @@ apiClient.interceptors.response.use(
   }
 );
 
+/** Extract a single item from an API response like { data: item } or just item */
+export function unwrap<T>(data: any): T {
+  return data.data ?? data;
+}
+
+/** Extract an array from an API response, always returning a safe array */
+export function unwrapArray<T>(data: any): T[] {
+  const result = data.data ?? data;
+  return Array.isArray(result) ? result : [];
+}
+
 export default apiClient;

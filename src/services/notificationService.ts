@@ -1,10 +1,10 @@
-import apiClient from './apiClient';
+import apiClient, { unwrapArray } from './apiClient';
 import type { Notification } from '@/types';
 
 export const notificationService = {
   async getNotifications(): Promise<Notification[]> {
     const { data } = await apiClient.get('/api/notifications');
-    return data.data || data;
+    return unwrapArray<Notification>(data);
   },
 
   async getUnreadCount(): Promise<number> {

@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { Monitor, ArrowLeft } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export default function NotFoundPage() {
@@ -9,8 +9,8 @@ export default function NotFoundPage() {
     <div className="flex min-h-screen flex-col items-center justify-center bg-muted/30 px-4">
       <div className="flex flex-col items-center gap-6 text-center">
         <div className="flex items-center gap-2">
-          <Monitor className="size-5" />
-          <span className="text-lg font-bold tracking-tight">ScreenSense</span>
+          <img src="/logo.svg" alt="OpenKap" className="size-6 rounded" />
+          <span className="text-lg font-bold tracking-tight">OpenKap</span>
         </div>
 
         <div className="space-y-2">

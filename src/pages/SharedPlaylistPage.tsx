@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import Hls from 'hls.js';
 import { formatDistanceToNow } from 'date-fns';
 import {
-  Monitor,
   Lock,
   Loader2,
   AlertCircle,
@@ -138,8 +137,8 @@ export default function SharedPlaylistPage() {
       <div className="min-h-screen bg-background">
         <header className="border-b">
           <div className="mx-auto flex h-14 max-w-4xl items-center gap-2 px-4">
-            <Monitor className="size-5" />
-            <span className="font-bold tracking-tight">ScreenSense</span>
+            <img src="/logo.svg" alt="OpenKap" className="size-6 rounded" />
+            <span className="font-bold tracking-tight">OpenKap</span>
           </div>
         </header>
         <div className="mx-auto max-w-4xl space-y-4 p-4">
@@ -161,8 +160,8 @@ export default function SharedPlaylistPage() {
         <Card className="w-full max-w-sm">
           <CardHeader className="text-center">
             <div className="mx-auto mb-2 flex items-center justify-center gap-2">
-              <Monitor className="size-5" />
-              <span className="text-lg font-bold tracking-tight">ScreenSense</span>
+              <img src="/logo.svg" alt="OpenKap" className="size-6 rounded" />
+              <span className="text-lg font-bold tracking-tight">OpenKap</span>
             </div>
             <Lock className="mx-auto size-8 text-muted-foreground" />
             <CardTitle>Password Required</CardTitle>
@@ -197,8 +196,8 @@ export default function SharedPlaylistPage() {
       <div className="min-h-screen bg-background">
         <header className="border-b">
           <div className="mx-auto flex h-14 max-w-4xl items-center gap-2 px-4">
-            <Monitor className="size-5" />
-            <span className="font-bold tracking-tight">ScreenSense</span>
+            <img src="/logo.svg" alt="OpenKap" className="size-6 rounded" />
+            <span className="font-bold tracking-tight">OpenKap</span>
           </div>
         </header>
         <div className="mx-auto max-w-md p-8">
@@ -218,8 +217,8 @@ export default function SharedPlaylistPage() {
     <div className="min-h-screen bg-background">
       <header className="border-b">
         <div className="mx-auto flex h-14 max-w-4xl items-center gap-2 px-4">
-          <Monitor className="size-5" />
-          <span className="font-bold tracking-tight">ScreenSense</span>
+          <img src="/logo.svg" alt="OpenKap" className="size-6 rounded" />
+          <span className="font-bold tracking-tight">OpenKap</span>
         </div>
       </header>
 

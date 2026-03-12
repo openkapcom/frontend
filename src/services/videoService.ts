@@ -1,20 +1,20 @@
-import apiClient from './apiClient';
+import apiClient, { unwrap, unwrapArray } from './apiClient';
 import type { Video, Comment, ZoomEvent, ZoomSettings } from '@/types';
 
 export const videoService = {
   async getVideos(params?: { search?: string; sort?: string; folder_id?: number }): Promise<Video[]> {
     const { data } = await apiClient.get('/api/videos', { params });
-    return data.data || data;
+    return unwrapArray<Video>(data);
   },
 
   async getFavourites(): Promise<Video[]> {
     const { data } = await apiClient.get('/api/videos/favourites');
-    return data.data || data;
+    return unwrapArray<Video>(data);
   },
 
   async getVideo(id: number): Promise<Video> {
     const { data } = await apiClient.get(`/api/videos/${id}`);
-    return data.data || data;
+    return unwrap<Video>(data);
   },
 
   async uploadVideo(formData: FormData, onProgress?: (p: number) => void): Promise<Video> {
@@ -24,12 +24,12 @@ export const videoService = {
         if (onProgress && e.total) onProgress(Math.round((e.loaded * 100) / e.total));
       },
     });
-    return data.data || data;
+    return unwrap<Video>(data);
   },
 
   async updateVideo(id: number, payload: { title?: string; description?: string }): Promise<Video> {
     const { data } = await apiClient.put(`/api/videos/${id}`, payload);
-    return data.data || data;
+    return unwrap<Video>(data);
   },
 
   async deleteVideo(id: number): Promise<void> {
@@ -50,28 +50,28 @@ export const videoService = {
 
   async toggleSharing(id: number): Promise<Video> {
     const { data } = await apiClient.post(`/api/videos/${id}/toggle-sharing`);
-    return data.data || data;
+    return unwrap<Video>(data);
   },
 
   async toggleFavourite(id: number): Promise<Video> {
     const { data } = await apiClient.post(`/api/videos/${id}/toggle-favourite`);
-    return data.data || data;
+    return unwrap<Video>(data);
   },
 
   async regenerateToken(id: number): Promise<{ share_token: string }> {
-    const { data } = await apiClient.post(`/api/videos/${id}/regenerate-token`);
+    const { data } = await apiClient.get(`/api/videos/${id}/regenerate-token`);
     return data;
   },
 
   // Comments
   async getComments(id: number): Promise<Comment[]> {
     const { data } = await apiClient.get(`/api/videos/${id}/comments`);
-    return data.data || data;
+    return unwrapArray<Comment>(data);
   },
 
   async addComment(id: number, body: string, timestamp?: number): Promise<Comment> {
     const { data } = await apiClient.post(`/api/videos/${id}/comments`, { body, timestamp });
-    return data.data || data;
+    return unwrap<Comment>(data);
   },
 
   async deleteComment(videoId: number, commentId: number): Promise<void> {
@@ -81,7 +81,7 @@ export const videoService = {
   // Reactions
   async getReactions(id: number): Promise<{ emoji: string; count: number }[]> {
     const { data } = await apiClient.get(`/api/videos/${id}/reactions`);
-    return data.data || data;
+    return unwrapArray(data);
   },
 
   async addReaction(id: number, emoji: string): Promise<void> {
@@ -134,7 +134,7 @@ export const videoService = {
 
   async getZoomEvents(id: number): Promise<ZoomEvent[]> {
     const { data } = await apiClient.get(`/api/videos/${id}/zoom-events`);
-    return data.data || data;
+    return unwrapArray<ZoomEvent>(data);
   },
 
   async updateZoomEvents(id: number, events: ZoomEvent[]): Promise<void> {
@@ -201,17 +201,17 @@ export const videoService = {
   // Shared video endpoints
   async getSharedVideo(token: string): Promise<Video> {
     const { data } = await apiClient.get(`/api/share/video/${token}`);
-    return data.data || data;
+    return unwrap<Video>(data);
   },
 
   async getSharedComments(token: string): Promise<Comment[]> {
     const { data } = await apiClient.get(`/api/share/video/${token}/comments`);
-    return data.data || data;
+    return unwrapArray<Comment>(data);
   },
 
   async addSharedComment(token: string, body: string, timestamp?: number): Promise<Comment> {
     const { data } = await apiClient.post(`/api/share/video/${token}/comments`, { body, timestamp });
-    return data.data || data;
+    return unwrap<Comment>(data);
   },
 
   async recordSharedView(token: string): Promise<void> {

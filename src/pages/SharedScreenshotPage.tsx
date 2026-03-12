@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { formatDistanceToNow } from 'date-fns';
-import { Monitor, Download, Calendar, AlertCircle, Loader2 } from 'lucide-react';
+import { Download, Calendar, AlertCircle, Loader2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 import { Skeleton } from '@/components/ui/skeleton';
@@ -49,8 +49,8 @@ export default function SharedScreenshotPage() {
       <div className="min-h-screen bg-background">
         <header className="border-b">
           <div className="mx-auto flex h-14 max-w-4xl items-center gap-2 px-4">
-            <Monitor className="size-5" />
-            <span className="font-bold tracking-tight">ScreenSense</span>
+            <img src="/logo.svg" alt="OpenKap" className="size-6 rounded" />
+            <span className="font-bold tracking-tight">OpenKap</span>
           </div>
         </header>
         <div className="mx-auto flex max-w-4xl items-center justify-center p-8">
@@ -65,8 +65,8 @@ export default function SharedScreenshotPage() {
       <div className="min-h-screen bg-background">
         <header className="border-b">
           <div className="mx-auto flex h-14 max-w-4xl items-center gap-2 px-4">
-            <Monitor className="size-5" />
-            <span className="font-bold tracking-tight">ScreenSense</span>
+            <img src="/logo.svg" alt="OpenKap" className="size-6 rounded" />
+            <span className="font-bold tracking-tight">OpenKap</span>
           </div>
         </header>
         <div className="mx-auto max-w-md p-8">
@@ -85,8 +85,8 @@ export default function SharedScreenshotPage() {
       <header className="border-b">
         <div className="mx-auto flex h-14 max-w-4xl items-center justify-between px-4">
           <div className="flex items-center gap-2">
-            <Monitor className="size-5" />
-            <span className="font-bold tracking-tight">ScreenSense</span>
+            <img src="/logo.svg" alt="OpenKap" className="size-6 rounded" />
+            <span className="font-bold tracking-tight">OpenKap</span>
           </div>
           <Button variant="outline" size="sm" className="gap-1.5" onClick={handleDownload}>
             <Download className="size-3.5" />

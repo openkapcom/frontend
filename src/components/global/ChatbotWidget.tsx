@@ -187,7 +187,7 @@ export function ChatbotWidget() {
                   <div className="flex flex-col items-center justify-center py-8 text-center">
                     <Bot className="mb-2 size-8 text-muted-foreground" />
                     <p className="text-sm text-muted-foreground">
-                      Start a conversation with ScreenSense AI
+                      Start a conversation with OpenKap AI
                     </p>
                   </div>
                 ) : (
@@ -272,7 +272,7 @@ export function ChatbotWidget() {
                   <MessageCircle className="mb-3 size-8 text-muted-foreground" />
                   <p className="mb-1 text-sm font-medium">No conversations</p>
                   <p className="mb-4 text-xs text-muted-foreground">
-                    Start chatting with ScreenSense AI
+                    Start chatting with OpenKap AI
                   </p>
                   <Button size="sm" onClick={createNewConversation}>
                     <Plus className="size-3.5" />
